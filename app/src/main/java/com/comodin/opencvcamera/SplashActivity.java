@@ -10,15 +10,31 @@ import android.util.Log;
 import com.lib.annotation.PermissionManager;
 import com.lib.base.PermissionActivity;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+
 import java.util.List;
 
+@EActivity(R.layout.activity_splash)
 public class SplashActivity extends PermissionActivity {
 
     private final long SPLASH_DISPLAY_LENGHT = 3000;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_splash);
+//        new Handler().postDelayed(new Runnable(){
+//
+//            @Override
+//            public void run() {
+//                checkPermissions();
+//            }
+//
+//        }, SPLASH_DISPLAY_LENGHT);
+//
+//    }
+    @AfterViews
+    void afterview(){
         new Handler().postDelayed(new Runnable(){
 
             @Override
@@ -27,7 +43,6 @@ public class SplashActivity extends PermissionActivity {
             }
 
         }, SPLASH_DISPLAY_LENGHT);
-
     }
     private final static int CAMERA_CODE = 111;
     private void checkPermissions(){
@@ -36,8 +51,9 @@ public class SplashActivity extends PermissionActivity {
                 Manifest.permission.READ_PHONE_STATE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.RECORD_AUDIO)){
-            Intent intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(this,MainActivity_.class);
+//            startActivity(intent);
+            MainActivity_.intent(this).start();
         }else{
             PermissionManager.requestPermissions(this,"please set permission!",
                     CAMERA_CODE,

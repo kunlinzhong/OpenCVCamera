@@ -156,12 +156,10 @@ public class BaseActivity extends Activity {
 
     /**
      * 获取权限成功
-     *
      * @param requestCode
      */
     public void permissionSuccess(int requestCode) {
         Log.d(TAG, "获取权限成功=" + requestCode);
-
     }
     /**
      * 权限获取失败
