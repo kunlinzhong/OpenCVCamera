@@ -6,16 +6,19 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
 
 import com.lib.annotation.PermissionManager;
 import com.lib.base.PermissionActivity;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.WindowFeature;
 
 import java.util.List;
 
 @EActivity(R.layout.activity_splash)
+@WindowFeature(Window.FEATURE_NO_TITLE)
 public class SplashActivity extends PermissionActivity {
 
     private final long SPLASH_DISPLAY_LENGHT = 3000;

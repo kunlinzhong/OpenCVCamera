@@ -25,6 +25,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <Button
+        android:id="@+id/btn_opencv_test"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="Test OpenCV"/>
     <Button
         android:id="@+id/btn_camera"
         android:layout_width="match_parent"

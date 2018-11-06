@@ -1,1 +1,2 @@
-include ':app', ':perissionslib', ':permissions'
+include ':app', ':permissions'
+include ':openCVLibrary343'
