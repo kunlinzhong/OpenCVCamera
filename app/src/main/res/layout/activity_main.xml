@@ -25,6 +25,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_player"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="Open Player"/>
 
     <Button
         android:id="@+id/btn_opencv_test"
@@ -35,11 +43,11 @@
         android:textAllCaps="false"
         android:text="Test OpenCV"/>
     <Button
-        android:id="@+id/btn_camera"
+        android:id="@+id/btn_fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
         android:textAllCaps="false"
-        android:text="Start Canera"/>
+        android:text="Test Fragment"/>
 </LinearLayout>

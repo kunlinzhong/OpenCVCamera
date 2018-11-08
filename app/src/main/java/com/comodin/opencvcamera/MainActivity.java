@@ -11,6 +11,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.comodin.fragment.TestFragment;
 import com.comodin.fragment.TestFragment_;
 import com.lib.annotation.PermissionManager;
 import com.lib.base.PermissionActivity;
@@ -35,25 +38,34 @@ public class MainActivity extends PermissionActivity {
     @ViewById
     TextView sample_text;
     @ViewById
-    Button btn_camera;
-    @ViewById
     LinearLayout title_layout;
     @ViewById
+    Button btn_fragment;
+    @ViewById
     Button btn_opencv_test;
-
+    @ViewById
+    Button btn_player;
+    private TestFragment testFragment;
     @AfterViews
     void init(){
         sample_text.setText(stringFromJNI());
     }
-    @Click(R.id.btn_camera)
-    void onClickBtnCamera() {
+
+    @Click(R.id.btn_fragment)
+    void onClickAddFragment() {
         if (fragmentFlag) {//加载fragment
-            TestFragment_ testFragment = new TestFragment_();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-            beginTransaction.add(R.id.title_layout, testFragment);
-            beginTransaction.addToBackStack(null);
-            beginTransaction.commit();
+            if(testFragment!=null&&testFragment.isAdded()){
+                Toast.makeText(this,"Test Fragment isAdded",Toast.LENGTH_LONG).show();
+            }else{
+                testFragment = new TestFragment_();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+                beginTransaction.add(R.id.title_layout, testFragment);
+                beginTransaction.addToBackStack(null);
+                beginTransaction.commit();
+            }
+
+
         } else if (PermissionManager.hasPermissions(MainActivity.this, Manifest.permission.CAMERA, Manifest.permission.READ_PHONE_STATE)) {
             Intent videoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
             videoIntent.putExtra(MediaStore.EXTRA_OUTPUT, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + "/Camera/");//保存路径
@@ -63,10 +75,13 @@ public class MainActivity extends PermissionActivity {
             PermissionManager.requestPermissions(MainActivity.this, "need camera permission", CAMERA_CODE, Manifest.permission.CAMERA, Manifest.permission.READ_PHONE_STATE);
         }
     }
-
     @Click(R.id.btn_opencv_test)
     void onClickOpenCVTestBtn(){
         OpencvTestActivity_.intent(this).start();
+    }
+    @Click(R.id.btn_player)
+    void onClickOpenPlayer(){
+        MyPlayerActivity_.intent(this).start();
     }
 
     @OnActivityResult(0)

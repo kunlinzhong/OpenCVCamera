@@ -1,2 +1,2 @@
-include ':app', ':permissions'
+include ':app', ':permissions', ':universalvideoview'
 include ':openCVLibrary343'
