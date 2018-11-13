@@ -1,0 +1,2 @@
+include ':app', ':permissions', ':universalvideoview', ':smartcameralib'
+include ':openCVLibrary343'

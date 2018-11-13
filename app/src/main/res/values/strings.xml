@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OpenCVCamera</string>
+    <string name="title_activity_my_player">MyPlayerActivity</string>
+</resources>
