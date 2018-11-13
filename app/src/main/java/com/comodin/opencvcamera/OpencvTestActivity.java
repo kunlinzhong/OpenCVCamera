@@ -1,7 +1,5 @@
 package com.comodin.opencvcamera;
 
-import java.util.Arrays;
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.opencv.android.BaseLoaderCallback;
@@ -19,13 +17,10 @@ import org.opencv.core.Size;
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.imgproc.Imgproc;
-
 import android.app.Activity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.WindowManager;
 
 @EActivity(R.layout.image_manipulations_surface_view)
 public class OpencvTestActivity extends Activity implements CvCameraViewListener2 {
@@ -49,9 +44,7 @@ public class OpencvTestActivity extends Activity implements CvCameraViewListener
     private MenuItem             mItemPreviewPixelize;
     private MenuItem             mItemPreviewPosterize;
     private CameraBridgeViewBase mOpenCvCameraView;
-
     private Size                 mSize0;
-
     private Mat                  mIntermediateMat;
     private Mat                  mMat0;
     private MatOfInt             mChannels[];
@@ -65,7 +58,6 @@ public class OpencvTestActivity extends Activity implements CvCameraViewListener
     private Point                mP2;
     private float                mBuff[];
     private Mat                  mSepiaKernel;
-
     public static int           viewMode = VIEW_MODE_RGBA;
 
     private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
@@ -89,18 +81,6 @@ public class OpencvTestActivity extends Activity implements CvCameraViewListener
         Log.i(TAG, "Instantiated new " + this.getClass());
     }
 
-//    /** Called when the activity is first created. */
-////    @Override
-////    public void onCreate(Bundle savedInstanceState) {
-////        Log.i(TAG, "called onCreate");
-////        super.onCreate(savedInstanceState);
-////        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-////
-////        setContentView(R.layout.image_manipulations_surface_view);
-////
-////        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.image_manipulations_activity_surface_view);
-////        mOpenCvCameraView.setCvCameraViewListener(this);
-////    }
     @AfterViews
     void afterViews(){
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.image_manipulations_activity_surface_view);
@@ -119,7 +99,8 @@ public class OpencvTestActivity extends Activity implements CvCameraViewListener
     public void onResume()
     {
         super.onResume();
-        OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_3, this, mLoaderCallback);
+//        OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_3, this, mLoaderCallback);
+        mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
     }
 
     public void onDestroy() {
@@ -183,7 +164,6 @@ public class OpencvTestActivity extends Activity implements CvCameraViewListener
         mWhilte = Scalar.all(255);
         mP1 = new Point();
         mP2 = new Point();
-
         // Fill sepia kernel
         mSepiaKernel = new Mat(4, 4, CvType.CV_32F);
         mSepiaKernel.put(0, 0, /* R */0.189f, 0.769f, 0.393f, 0f);
@@ -192,33 +172,25 @@ public class OpencvTestActivity extends Activity implements CvCameraViewListener
         mSepiaKernel.put(3, 0, /* A */0.000f, 0.000f, 0.000f, 1f);
     }
 
-    public void onCameraViewStopped() {
-        // Explicitly deallocate Mats
+    public void onCameraViewStopped() { // Explicitly deallocate Mats
         if (mIntermediateMat != null)
             mIntermediateMat.release();
-
         mIntermediateMat = null;
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
         Mat rgba = inputFrame.rgba();
         Size sizeRgba = rgba.size();
-
         Mat rgbaInnerWindow;
-
         int rows = (int) sizeRgba.height;
         int cols = (int) sizeRgba.width;
-
         int left = cols / 8;
         int top = rows / 8;
-
         int width = cols * 3 / 4;
         int height = rows * 3 / 4;
-
         switch (viewMode) {
             case VIEW_MODE_RGBA:
                 break;
-
             case VIEW_MODE_HIST:
 //                Mat hist = new Mat();
 //                int thikness = (int) (sizeRgba.width / (mHistSizeNum + 10) / 5);
@@ -315,20 +287,6 @@ public class OpencvTestActivity extends Activity implements CvCameraViewListener
                 rgbaInnerWindow.release();
                 break;
         }
-
         return rgba;
     }
 }
-
-
-//import android.support.v7.app.AppCompatActivity;
-//import android.os.Bundle;
-//
-//public class OpencvTestActivity extends AppCompatActivity {
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_opencv_test);
-//    }
-//}

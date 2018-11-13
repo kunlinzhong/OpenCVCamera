@@ -51,6 +51,8 @@ public class SplashActivity extends PermissionActivity {
     private void checkPermissions(){
         if (PermissionManager.hasPermissions(this,
                 Manifest.permission.CAMERA,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.READ_PHONE_STATE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.RECORD_AUDIO)){
@@ -61,6 +63,8 @@ public class SplashActivity extends PermissionActivity {
             PermissionManager.requestPermissions(this,"please set permission!",
                     CAMERA_CODE,
                     Manifest.permission.CAMERA,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.READ_PHONE_STATE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     Manifest.permission.RECORD_AUDIO);

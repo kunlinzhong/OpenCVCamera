@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.comodin.opencvcamera"
@@ -13,6 +15,14 @@ android {
             cmake {
                 cppFlags "-std=c++14 -frtti -fexceptions"
             }
+        }
+    }
+    signingConfigs {
+        comodinsigning {
+            keyAlias 'key0'
+            keyPassword '456123'
+            storeFile file('src/test_release.jks')
+            storePassword '456123'
         }
     }
     buildTypes {

@@ -68,6 +68,9 @@ public class MyPlayerActivity extends AppCompatActivity implements UniversalVide
      * 置视频区域大小
      */
     private void setVideoAreaSize() {
+        if(BuildConfig.DEBUG){
+
+        }
         mVideoLayout.post(new Runnable() {
             @Override
             public void run() {

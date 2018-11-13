@@ -22,16 +22,16 @@ INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\Android
 		INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
 		INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
 uses-sdk
-ADDED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
-INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
-INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
-INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
-INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
+INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
+INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
+INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		ADDED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml:7:15-44
 		INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
+		ADDED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
 		INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
-		ADDED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml:7:5-47
+		ADDED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
 		INJECTED from D:\androidWorkSpace\OpenCVCamera\openCVLibrary343\src\main\AndroidManifest.xml
