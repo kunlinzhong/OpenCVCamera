@@ -8,4 +8,5 @@
     <color name="bg_black">#ff000000</color>
     <color name="bg_light_gray">#ffF0F0F0</color>
     <color name="bg_gray">#ffbbbbbb</color>
+    <color name="colorTrans">#000</color>
 </resources>

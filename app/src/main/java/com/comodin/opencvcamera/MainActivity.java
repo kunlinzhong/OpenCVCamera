@@ -77,7 +77,9 @@ public class MainActivity extends PermissionActivity {
     }
     @Click(R.id.btn_opencv_test)
     void onClickOpenCVTestBtn(){
-        OpencvTestActivity_.intent(this).start();
+        Intent intent = new Intent(this,SCameraActivity.class);
+        startActivity(intent);
+//        OpencvTestActivity_.intent(this).start();
     }
     @Click(R.id.btn_player)
     void onClickOpenPlayer(){
