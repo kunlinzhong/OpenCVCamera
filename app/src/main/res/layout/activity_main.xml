@@ -43,6 +43,14 @@
         android:textAllCaps="false"
         android:text="Test OpenCV"/>
     <Button
+        android:id="@+id/btn_custom_camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="Custom CameraView"/>
+    <Button
         android:id="@+id/btn_fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

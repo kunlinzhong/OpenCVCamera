@@ -4,7 +4,9 @@
     package="com.comodin.opencvcamera">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -14,6 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,7 +37,8 @@
         <activity
             android:name=".MyPlayerActivity_"
             android:configChanges="orientation|screenSize|screenLayout" />
-        <activity android:name=".SCameraActivity"></activity>
+        <activity android:name=".SCameraActivity" />
+        <activity android:name=".CustomCamera"></activity>
     </application>
 
 </manifest>

@@ -45,6 +45,8 @@ public class MainActivity extends PermissionActivity {
     Button btn_opencv_test;
     @ViewById
     Button btn_player;
+    @ViewById
+    Button btn_custom_camera_view;
     private TestFragment testFragment;
     @AfterViews
     void init(){
@@ -74,6 +76,11 @@ public class MainActivity extends PermissionActivity {
         } else {
             PermissionManager.requestPermissions(MainActivity.this, "need camera permission", CAMERA_CODE, Manifest.permission.CAMERA, Manifest.permission.READ_PHONE_STATE);
         }
+    }
+    @Click(R.id.btn_custom_camera_view)
+    void onClickCustomCamera(){
+        Intent intent = new Intent(this,CustomCamera.class);
+        startActivity(intent);
     }
     @Click(R.id.btn_opencv_test)
     void onClickOpenCVTestBtn(){

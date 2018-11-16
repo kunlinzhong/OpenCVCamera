@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import com.comodin.opencvcamera.BuildConfig;
 import com.comodin.opencvcamera.R;
+import com.comodin.struct.FunctionsManager;
+
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
@@ -27,6 +29,7 @@ public class TestFragment extends Fragment {
             Log.e("setData","----->");
             Log.e("messageStr","----->"+messageStr);
             Log.e("messageData","----->"+messageData);
+            FunctionsManager.getInstance2();
         }
         titleTv.setText("messageData");
     }
