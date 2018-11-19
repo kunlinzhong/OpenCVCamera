@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.comodin.fragment.TestFragment;
 import com.comodin.fragment.TestFragment_;
+import com.comodin.struct.BaseFrg;
+import com.comodin.struct.FunctionNoParamNoResult;
+import com.comodin.struct.FunctionsManager;
 import com.lib.annotation.PermissionManager;
 import com.lib.base.PermissionActivity;
 import org.androidannotations.annotations.AfterViews;
@@ -96,6 +99,18 @@ public class MainActivity extends PermissionActivity {
     @OnActivityResult(0)
     void onResult(int resultCode, Intent data) {
         Log.i("onActivityResult-->", "拍摄完成，resultCode=" + resultCode);
+    }
+
+    public void setFunctionsForFragment(String tag){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        BaseFrg frg = (BaseFrg)fragmentManager.findFragmentByTag(tag);
+        FunctionsManager fm = FunctionsManager.getInstance();
+        frg.setFunctionManager(fm.addFunction(new FunctionNoParamNoResult(TestFragment.INTERFACE) {
+            @Override
+            public void function() {
+                Toast.makeText(MainActivity.this,"成功调用 FunctionNoParamNoResult 的接口",Toast.LENGTH_LONG).show();
+            }
+        }));
     }
     /**
      * A native method that is implemented by the 'native-lib' native library,
