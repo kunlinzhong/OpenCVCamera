@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'kotlin-android-extensions'
 
 android {
     signingConfigs {
@@ -16,6 +17,7 @@ android {
                 cppFlags "-std=c++14 -frtti -fexceptions"
             }
         }
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
     signingConfigs {
         comodinsigning {
@@ -37,7 +39,7 @@ android {
         }
     }
 }
-def AnnotationsVersion = "4.5.2"
+def AnnotationsVersion = "4.6.0"
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
